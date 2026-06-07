@@ -1,0 +1,39 @@
+<div class="about-page animate-fade-in">
+  <!-- ── Section Header ── -->
+  <div class="section-header">
+    <h2 class="section-title">About Me</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <!-- ── Profile Summary ── -->
+  <div class="about-content">
+    <div class="about-intro">
+      <h1 class="about-name">
+        Hi, I'm <span class="highlight">Shobana R</span>
+      </h1>
+      <p class="about-role">Fresher &bull; Aspiring Software Developer</p>
+    </div>
+
+    <div class="about-bio">
+      <p>
+        A motivated graduate seeking a
+        <strong>Software Development</strong> position in the IT industry. Quick
+        learner with strong problem-solving abilities, excellent teamwork
+        skills, and a passion for continuous learning and professional growth.
+      </p>
+    </div>
+
+    <!-- ── Key Strengths ── -->
+    <div class="strengths-section">
+      <h3 class="strengths-title">What I Bring</h3>
+      <ul class="strengths-list">
+        @for (strength of strengths; track strength) {
+          <li>
+            <span class="strength-arrow">▹</span>
+            <span>{{ strength }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>

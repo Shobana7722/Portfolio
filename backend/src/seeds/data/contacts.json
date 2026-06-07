@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Jane Smith",
+    "email": "jane.smith@example.com",
+    "subject": "Freelance Project Inquiry",
+    "message": "Hi, I really like your portfolio! Are you available for a freelance web development project starting next month?",
+    "read": false
+  },
+  {
+    "name": "Tech Recruiter",
+    "email": "recruiter@bigtech.com",
+    "subject": "Opportunity at BigTech",
+    "message": "Hello, we came across your profile and think you'd be a great fit for our Senior Frontend Engineer role. Please let me know if you are open to a quick chat.",
+    "read": true
+  }
+]

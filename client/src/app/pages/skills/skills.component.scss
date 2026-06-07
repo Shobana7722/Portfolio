@@ -1,0 +1,123 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+/* =========================================
+   Skills Page – Category Card Layout
+   ========================================= */
+
+.page-container {
+  padding-top: 100px;
+  min-height: calc(100vh - 100px);
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Section Header ── */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-xl;
+
+  .numbered-heading {
+    font-size: clamp(26px, 5vw, 32px);
+    color: var(--text-color);
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .section-line {
+    height: 1px;
+    flex-grow: 1;
+    background: var(--card-border);
+    max-width: 300px;
+  }
+}
+
+/* ── 2×2 Grid ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+  @media (max-width: 680px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Card ── */
+.skill-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: $border-radius-lg;
+  padding: 1.75rem 1.5rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(var(--primary-rgb), 0.12);
+  }
+}
+
+/* ── Card Header ── */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--card-border);
+
+  .card-icon {
+    font-size: 1.3rem;
+    line-height: 1;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+  }
+}
+
+/* ── Skill List ── */
+.skill-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    opacity: 0.85;
+    line-height: 1.5;
+    font-family: $font-family-base;
+    transition: opacity 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+      color: var(--primary-color);
+    }
+
+    .arrow {
+      color: var(--primary-color);
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+  }
+}

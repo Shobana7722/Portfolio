@@ -1,0 +1,185 @@
+<div class="project-detail-page animate-fade-in">
+  <button
+    type="button"
+    class="back-button"
+    (click)="goBack()"
+    aria-label="Go back to projects"
+  >
+    ← Back to Projects
+  </button>
+
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading project details...</p>
+  </div>
+
+  <div *ngIf="!isLoading && project" class="project-detail-container">
+    <!-- Project Header -->
+    <div class="hero-section">
+      <div class="hero-image-wrapper">
+        <img
+          [src]="project.imageUrl"
+          [alt]="project.title"
+          class="hero-image"
+        />
+        <div class="hero-overlay">
+          <h1>{{ project.title }}</h1>
+          <p *ngIf="project.tagline" class="tagline">{{ project.tagline }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="project-content">
+      <!-- Description -->
+      <section class="section description-section">
+        <h2>Description</h2>
+        <p class="description">{{ project.description }}</p>
+      </section>
+
+      <!-- Challenge Section -->
+      <section *ngIf="project.challenge" class="section">
+        <h2>Challenge</h2>
+        <p>{{ project.challenge }}</p>
+      </section>
+
+      <!-- Solution Section -->
+      <section *ngIf="project.solution" class="section">
+        <h2>Solution</h2>
+        <p>{{ project.solution }}</p>
+      </section>
+
+      <!-- Highlights Section -->
+      <section
+        *ngIf="project.highlights && project.highlights.length > 0"
+        class="section"
+      >
+        <h2>Key Highlights</h2>
+        <ul class="highlights-list">
+          <li *ngFor="let highlight of project.highlights">{{ highlight }}</li>
+        </ul>
+      </section>
+
+      <!-- Features Section -->
+      <section
+        *ngIf="project.features && project.features.length > 0"
+        class="section"
+      >
+        <h2>Features</h2>
+        <div class="features-grid">
+          <div *ngFor="let feature of project.features" class="feature-item">
+            <p>{{ feature }}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Metrics Section -->
+      <section
+        *ngIf="project.metrics && project.metrics.length > 0"
+        class="section"
+      >
+        <h2>Impact & Results</h2>
+        <div class="metrics-grid">
+          <div *ngFor="let metric of project.metrics" class="metric-card">
+            <p class="metric-value">{{ metric.value }}</p>
+            <p class="metric-label">{{ metric.label }}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Timeline Section -->
+      <section *ngIf="project.timeline" class="section">
+        <h2>Timeline</h2>
+        <p class="timeline">{{ project.timeline }}</p>
+      </section>
+
+      <!-- Outcome Section -->
+      <section *ngIf="project.outcome" class="section">
+        <h2>Outcome</h2>
+        <p>{{ project.outcome }}</p>
+      </section>
+
+      <!-- Project Images Gallery -->
+      <section
+        *ngIf="project.images && project.images.length > 0"
+        class="section"
+      >
+        <h2>Project Images</h2>
+        <div class="image-gallery">
+          <img
+            *ngFor="let image of project.images"
+            [src]="image"
+            [alt]="project.title"
+            class="gallery-image"
+          />
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section
+        *ngIf="project.testimonials && project.testimonials.length > 0"
+        class="section testimonials-section"
+      >
+        <h2>What Clients Say</h2>
+        <div class="testimonials-grid">
+          <div
+            *ngFor="let testimonial of project.testimonials"
+            class="testimonial-card"
+          >
+            <p class="testimonial-text">"{{ testimonial.text }}"</p>
+            <div class="testimonial-author">
+              <p class="author-name">{{ testimonial.author }}</p>
+              <p *ngIf="testimonial.role" class="author-role">
+                {{ testimonial.role }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technologies Section -->
+      <section class="section">
+        <h2>Technologies Used</h2>
+        <div class="tech-tags">
+          <span *ngFor="let tech of project.technologies" class="tech-tag">{{
+            tech
+          }}</span>
+        </div>
+      </section>
+
+      <!-- Action Links -->
+      <section class="section cta-section">
+        <div class="links">
+          <a
+            *ngIf="project.demoUrl || project.projectUrl"
+            [href]="project.demoUrl || project.projectUrl"
+            target="_blank"
+            rel="noreferrer"
+            class="btn btn-primary"
+            >View Live Demo</a
+          >
+          <a
+            *ngIf="project.githubUrl"
+            [href]="project.githubUrl"
+            target="_blank"
+            rel="noreferrer"
+            class="btn btn-secondary"
+            >View on GitHub</a
+          >
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div *ngIf="!isLoading && !project" class="error-state">
+    <p>{{ errorMessage || "Project not found." }}</p>
+    <button
+      type="button"
+      class="back-button"
+      (click)="goBack()"
+      aria-label="Return to projects"
+    >
+      Return to Projects
+    </button>
+  </div>
+</div>

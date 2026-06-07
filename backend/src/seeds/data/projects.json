@@ -1,0 +1,32 @@
+[
+  {
+    "title": "E-Commerce Platform",
+    "description": "A full-featured e-commerce platform built with the MERN stack. Includes user authentication, product search/filtering, shopping cart, and Stripe payment integration. Admin dashboard allows for product and order management.",
+    "technologies": ["React", "Redux", "Node.js", "Express", "MongoDB", "Stripe"],
+    "imageUrl": "projects/ecommerce-thumbnail.jpg",
+    "gallery": [],
+    "githubUrl": "https://github.com/johndoe/ecommerce",
+    "liveUrl": "https://johndoe-ecommerce.com",
+    "featured": true
+  },
+  {
+    "title": "Task Management App",
+    "description": "A collaborative task management tool inspired by Trello. Users can create boards, lists, and cards, assign tasks to members, and set due dates. Features real-time updates using WebSockets.",
+    "technologies": ["Vue.js", "Firebase", "Tailwind CSS", "Vuex"],
+    "imageUrl": "projects/taskapp-thumbnail.jpg",
+    "gallery": [],
+    "githubUrl": "https://github.com/johndoe/taskapp",
+    "liveUrl": "https://johndoe-taskapp.com",
+    "featured": true
+  },
+  {
+    "title": "Weather Dashboard",
+    "description": "A simple and elegant weather dashboard that provides current weather data and a 5-day forecast for any city worldwide, utilizing the OpenWeatherMap API.",
+    "technologies": ["HTML", "CSS", "Vanilla JS", "OpenWeatherMap API"],
+    "imageUrl": "projects/weather-thumbnail.jpg",
+    "gallery": [],
+    "githubUrl": "https://github.com/johndoe/weather-dash",
+    "liveUrl": "https://johndoe-weather.com",
+    "featured": false
+  }
+]

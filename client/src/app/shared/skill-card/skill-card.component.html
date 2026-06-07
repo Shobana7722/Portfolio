@@ -1,0 +1,24 @@
+<div class="skill-card">
+  <div class="skill-header">
+    <div class="skill-icon-wrapper">
+      <!-- You could render an actual SVG or image based on the skill.icon string here -->
+      <img [src]="'assets/icons/' + skill.icon + '.svg'" [alt]="skill.name" class="skill-icon" onerror="this.style.display='none'" />
+      <!-- Fallback text icon if image fails -->
+      <span class="fallback-icon">{{ skill.name.charAt(0) }}</span>
+    </div>
+    <div class="skill-info">
+      <h4 class="skill-name">{{ skill.name }}</h4>
+      <span class="skill-category">{{ skill.category }}</span>
+    </div>
+  </div>
+  
+  <div class="skill-progress-container">
+    <div class="progress-header">
+      <span class="progress-label">Proficiency</span>
+      <span class="progress-percentage">{{ skill.proficiency }}%</span>
+    </div>
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" [style.width.%]="skill.proficiency"></div>
+    </div>
+  </div>
+</div>

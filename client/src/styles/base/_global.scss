@@ -1,0 +1,26 @@
+@use '../abstracts/variables' as *;
+
+body {
+  font-family: $font-family-base;
+  line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-heading;
+  font-weight: 700;
+  margin-bottom: $spacing-md;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}
+
+section {
+  padding: $spacing-xl 0;
+}

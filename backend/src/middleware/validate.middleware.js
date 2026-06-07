@@ -1,0 +1,14 @@
+const { ErrorResponse } = require('../utils/responseHandler');
+
+const validate = (schema) => (req, res, next) => {
+  const { error } = schema.validate(req.body);
+  
+  if (error) {
+    const message = error.details.map(i => i.message).join(',');
+    return next(new ErrorResponse(message, 400));
+  }
+  
+  next();
+};
+
+module.exports = validate;

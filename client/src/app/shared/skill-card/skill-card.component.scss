@@ -1,0 +1,101 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+.skill-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: $border-radius-md;
+  padding: $spacing-md;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+
+    .progress-bar-fill {
+      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    }
+  }
+
+  .skill-header {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+
+    .skill-icon-wrapper {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background-color: rgba(128, 128, 128, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+
+      .skill-icon {
+        width: 24px;
+        height: 24px;
+        z-index: 2;
+      }
+
+      .fallback-icon {
+        position: absolute;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        z-index: 1;
+      }
+    }
+
+    .skill-info {
+      .skill-name {
+        margin: 0;
+        font-size: 1.1rem;
+        color: var(--text-color);
+      }
+
+      .skill-category {
+        font-size: 0.8rem;
+        color: var(--text-color);
+        opacity: 0.6;
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  .skill-progress-container {
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: $spacing-xs;
+      font-size: 0.85rem;
+      color: var(--text-color);
+
+      .progress-percentage {
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 8px;
+      background-color: rgba(128, 128, 128, 0.15);
+      border-radius: 4px;
+      overflow: hidden;
+
+      .progress-bar-fill {
+        height: 100%;
+        background-color: var(--primary-color);
+        border-radius: 4px;
+        transition: width 1s ease-out, background 0.3s ease;
+      }
+    }
+  }
+}

@@ -1,0 +1,201 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+.page-container {
+  padding-top: 100px;
+  min-height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+  width: 100%;
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+.contact-info {
+  .section-header {
+    margin-bottom: $spacing-md;
+
+    .numbered-heading {
+      font-size: clamp(26px, 5vw, 36px);
+      color: var(--text-color);
+      margin: 0;
+
+
+    }
+  }
+
+  .description {
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: $spacing-lg;
+    max-width: 500px;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: $spacing-md;
+      color: var(--text-color);
+
+      .icon {
+        color: var(--primary-color);
+      }
+
+      a {
+        transition: color 0.3s ease;
+        &:hover {
+          color: var(--primary-color);
+        }
+      }
+    }
+  }
+}
+
+.contact-form-container {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      label {
+        font-size: 0.9rem;
+        color: var(--text-color);
+        opacity: 0.8;
+        font-family: $font-family-heading;
+      }
+
+      input, textarea {
+        background-color: rgba(128, 128, 128, 0.05);
+        border: 1px solid var(--card-border);
+        border-radius: $border-radius-sm;
+        padding: 12px 15px;
+        color: var(--text-color);
+        font-family: $font-family-base;
+        transition: all 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: var(--primary-color);
+          box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.1);
+        }
+
+        &::placeholder {
+          color: var(--text-color);
+          opacity: 0.3;
+        }
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .error-message {
+        color: #ef4444; // Red for errors
+        font-size: 0.8rem;
+        margin-top: 4px;
+      }
+    }
+
+    .btn-primary {
+      margin-top: $spacing-md;
+      padding: 12px;
+      background-color: var(--btn-filled-bg);
+      color: var(--btn-filled-text);
+      border: none;
+      border-radius: $border-radius-sm;
+      font-family: $font-family-heading;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s ease;
+      min-height: 48px;
+
+      &:hover:not([disabled]) {
+        background-color: var(--btn-filled-hover-bg);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px var(--btn-hover-shadow);
+      }
+
+
+      &[disabled] {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+    }
+
+    .alert {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 15px;
+      border-radius: $border-radius-sm;
+      font-size: 0.95rem;
+      margin-top: $spacing-sm;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .alert-success {
+      background-color: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .alert-error {
+      background-color: rgba(239, 68, 68, 0.1);
+      color: #ef4444;
+      border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+
+    .spinner-small {
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s ease-in-out infinite;
+    }
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

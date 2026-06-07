@@ -1,0 +1,174 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+.page-container {
+  padding-top: 100px;
+  min-height: calc(100vh - 100px);
+}
+
+.education-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+
+  @include respond-to('lg') {
+    grid-template-columns: 3fr 2fr;
+    gap: 60px;
+  }
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-xl;
+
+  .numbered-heading {
+    font-size: clamp(24px, 4vw, 30px);
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .section-line {
+    height: 1px;
+    flex-grow: 1;
+    background-color: var(--card-border);
+  }
+}
+
+.timeline {
+  position: relative;
+  padding-left: 30px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 5px;
+    bottom: 0;
+    width: 2px;
+    background-color: rgba(128, 128, 128, 0.2);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: $spacing-xl;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -30px;
+      top: 5px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: var(--bg-color);
+      border: 3px solid var(--primary-color);
+      z-index: 2;
+    }
+
+    .timeline-content {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: $border-radius-md;
+      padding: $spacing-lg;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .degree {
+        font-size: 1.3rem;
+        color: var(--text-color);
+        margin-bottom: $spacing-xs;
+      }
+
+      .institution {
+        font-size: 1.1rem;
+        color: var(--primary-color);
+        font-weight: 500;
+        margin-bottom: $spacing-xs;
+      }
+
+      .period {
+        display: inline-block;
+        font-size: 0.85rem;
+        color: var(--text-color);
+        opacity: 0.6;
+        margin-bottom: $spacing-md;
+        font-family: $font-family-base;
+      }
+
+      .description {
+        color: var(--text-color);
+        opacity: 0.8;
+        line-height: 1.6;
+      }
+    }
+  }
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+
+  .cert-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: $border-radius-md;
+    padding: $spacing-md;
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-md;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateX(5px);
+      border-color: var(--primary-color);
+    }
+
+    .cert-icon {
+      color: var(--primary-color);
+      padding-top: 2px;
+    }
+
+    .cert-info {
+      .cert-name {
+        color: var(--text-color);
+        font-size: 1rem;
+        margin-bottom: 4px;
+      }
+
+      .cert-issuer {
+        color: var(--text-color);
+        opacity: 0.7;
+        font-size: 0.85rem;
+        margin-bottom: 4px;
+      }
+
+      .cert-year {
+        color: var(--text-color);
+        opacity: 0.5;
+        font-size: 0.8rem;
+        font-family: $font-family-base;
+      }
+    }
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

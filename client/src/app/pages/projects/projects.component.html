@@ -1,0 +1,31 @@
+<div class="page-container animate-fade-in">
+  <div class="section-header">
+    <h2 class="numbered-heading">Some Things I've Built</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="filters-container">
+    <button 
+      class="filter-btn" 
+      *ngFor="let filter of filters"
+      [class.active]="activeFilter === filter"
+      (click)="setFilter(filter)"
+    >
+      {{ filter }}
+    </button>
+  </div>
+
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading projects...</p>
+  </div>
+
+  <div *ngIf="!isLoading && filteredProjects.length > 0" class="projects-grid">
+    <app-project-card *ngFor="let project of filteredProjects" [project]="project"></app-project-card>
+  </div>
+  
+  <div *ngIf="!isLoading && filteredProjects.length === 0" class="empty-state">
+    <p>No projects match this filter.</p>
+    <button class="btn-clear" (click)="setFilter('All')">Clear Filter</button>
+  </div>
+</div>

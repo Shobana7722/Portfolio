@@ -1,0 +1,110 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+.page-container {
+  padding-top: 100px;
+  min-height: calc(100vh - 100px);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-xl;
+
+  .numbered-heading {
+    font-size: clamp(26px, 5vw, 32px);
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .section-line {
+    height: 1px;
+    flex-grow: 1;
+    background-color: var(--card-border);
+    max-width: 300px;
+  }
+}
+
+.filters-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+  margin-bottom: $spacing-xl;
+  justify-content: center;
+
+  .filter-btn {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: $font-family-heading;
+    transition: all 0.3s ease;
+
+    &:hover, &.active {
+      background: var(--primary-color);
+      color: white;
+      box-shadow: 0 4px 10px rgba(var(--primary-rgb), 0.3);
+    }
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.loading-state, .empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl 0;
+  color: var(--text-color);
+  opacity: 0.7;
+
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(128, 128, 128, 0.2);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+    margin-bottom: $spacing-md;
+  }
+  
+  .btn-clear {
+    margin-top: $spacing-md;
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "platform": "GitHub",
+    "url": "https://github.com/johndoe",
+    "icon": "fab fa-github",
+    "isActive": true,
+    "order": 1
+  },
+  {
+    "platform": "LinkedIn",
+    "url": "https://linkedin.com/in/johndoe",
+    "icon": "fab fa-linkedin",
+    "isActive": true,
+    "order": 2
+  },
+  {
+    "platform": "Twitter",
+    "url": "https://twitter.com/johndoe",
+    "icon": "fab fa-twitter",
+    "isActive": true,
+    "order": 3
+  }
+]

@@ -1,0 +1,63 @@
+<div class="page-container animate-fade-in">
+
+  <div class="section-header">
+    <h2 class="numbered-heading">My Skills</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="skills-grid">
+
+    <!-- Programming Languages -->
+    <div class="skill-card">
+      <div class="card-header">
+        <span class="card-icon">💻</span>
+        <h3 class="card-title">Programming Languages</h3>
+      </div>
+      <ul class="skill-list">
+        <li *ngFor="let s of programmingSkills">
+          <span class="arrow">▹</span>{{ s.name }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Web Technologies -->
+    <div class="skill-card">
+      <div class="card-header">
+        <span class="card-icon">🌐</span>
+        <h3 class="card-title">Web Technologies</h3>
+      </div>
+      <ul class="skill-list">
+        <li *ngFor="let s of webSkills">
+          <span class="arrow">▹</span>{{ s.name }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Databases -->
+    <div class="skill-card">
+      <div class="card-header">
+        <span class="card-icon">🗄️</span>
+        <h3 class="card-title">Databases</h3>
+      </div>
+      <ul class="skill-list">
+        <li *ngFor="let s of databaseSkills">
+          <span class="arrow">▹</span>{{ s.name }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Developer Tools -->
+    <div class="skill-card">
+      <div class="card-header">
+        <span class="card-icon">🛠️</span>
+        <h3 class="card-title">Developer Tools</h3>
+      </div>
+      <ul class="skill-list">
+        <li *ngFor="let s of toolsSkills">
+          <span class="arrow">▹</span>{{ s.name }}
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
